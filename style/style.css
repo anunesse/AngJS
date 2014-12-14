@@ -1,0 +1,13 @@
+.female{
+    background-color: #fdd2fe;
+    opacity: 0.9;
+}
+
+.male{
+    background-color: #b6e8fe;
+    opacity: 0.9;
+}
+
+th {
+    cursor: pointer;
+}
