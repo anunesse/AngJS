@@ -34,7 +34,8 @@
             <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
         </div>
 
-        <div class="container row" ng-if="selectedUser">
+        <div class="container" ng-if="selectedUser">
+          <div class="row">
             <form class="form" role="form">
                 <div class="form-group col-md-4">
                     <label for="name">Name</label>
@@ -63,6 +64,7 @@
                     <input type="text" value="{{selectedUser.latitude + '; '+selectedUser.longitude}}" class="form-control" id="position">
                 </div>
             </form>
+          </div>
         </div>
     </div>
 
@@ -110,7 +112,7 @@
 
         <div class="row" ng-if="mode === 0">
             <div class="col-md-3" ng-repeat="user in users | filter:search | limitTo:limit | gender:ordering.gender">
-                <h2>{{user.name}}</h2>
+                <h2>{{user.name}} <i class="fa" ng-class="{'fa-mars': user.gender === 'male','fa-venus' : user.gender === 'female'}"></i></h2>
                 <p>{{user.about | limitTo: 90}}{{user.about.length > 90 ? '...' : ''}}</p>
                 <p><a class="btn btn-default" href="#" ng-click="selectUser(user);" role="button">View details &raquo;</a></p>
             </div>
@@ -147,7 +149,7 @@
                 </tr>
                 <tr ng-repeat="user in users | filter:search | limitTo:limit | orderBy:ordering.field:ordering.reverse | gender:ordering.gender"
                     ng-class="(user.gender === 'male')? 'male':'female'">
-                    <td>{{user.name}}</td>
+                    <td>{{user.name}} <i class="fa" ng-class="{'fa-mars': user.gender === 'male','fa-venus' : user.gender === 'female'}"></i></td>
                     <td>{{user.email}}</td>
                     <td>{{user.age}}</td>
                     <td>{{user.about | limitTo: 90}}{{user.about.length > 90 ? '...' : ''}}</td>
